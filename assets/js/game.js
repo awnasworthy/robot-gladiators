@@ -13,8 +13,9 @@ var fight = function(enemy) {
     // ask player if they'd like to fight or run
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
+    promptFight = promptFight.toLowerCase();
     // if player picks "skip" confirm and then stop the loop
-    if (promptFight === "skip" || promptFight === "SKIP") {
+    if (promptFight === "skip") {
       // confirm player wants to skip
       var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -27,7 +28,7 @@ var fight = function(enemy) {
         break;
       }
     }
-    else if (promptFight ==="FIGHT" || promptFight === "fight") {
+    else if (promptFight === "fight") {
     // generate random damage value based on player's attack power
     var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 

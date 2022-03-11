@@ -27,7 +27,7 @@ var fight = function(enemy) {
         break;
       }
     }
-
+    else if (promptFight ==="FIGHT" || promptFight === "fight") {
     // generate random damage value based on player's attack power
     var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 
@@ -67,6 +67,11 @@ var fight = function(enemy) {
       window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
     }
   }
+  else {
+    window.alert ("Please select a valid response.")
+  } 
+}
+
 };
 
 // function to start a new game
@@ -169,9 +174,21 @@ var shop = function() {
 
 /* GAME INFORMATION / VARIABLES */
 
+// function to set name
+var getPlayerName = function() {
+  var name = "";
+
+    while (name === "" || name === null) {
+      name = prompt ("What is your robot's name?");
+    }
+
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 // player information
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
@@ -226,4 +243,5 @@ console.log(enemyInfo[0]['attack']);
 /* END GAME INFORMATION / VARIABLES */
 
 /* RUN GAME */
+
 startGame();
